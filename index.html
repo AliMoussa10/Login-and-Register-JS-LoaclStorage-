@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Sign In</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="registerForm" method="POST" name="registration" class="form-control"
+            onsubmit="return validateForm();">
+            <h1>REGISTER</h1>
+            <div class="form-group">
+                <label for="name">Username</label>
+                <input type="text" autocomplete="off" name="name" id="name" class="form-control"
+                    placeholder="Enter your username" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" autocomplete="off" name="email" id="email" class="form-control"
+                    placeholder="Enter your email" oninput="emailExist(this)" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" autocomplete="new-password" name="password" id="password" class="form-control"
+                    placeholder="Enter your password" />
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" autocomplete="new-password" name="confirmPassword" id="confirmPassword"
+                    class="form-control" placeholder="Confirm your password" oninput="verifyPassword(this)" />
+            </div>
+            <button type=" submit" id="submit">Sign Up</button>
+            <span>
+                Already have an account?
+                <a href="javascript:void(0);" onclick="showHide('logIn', 'registerForm')">
+                    Log in now
+                </a>
+            </span>
+
+        </form>
+        <form id="thankYou" class="form-control" style="display: none;">
+            <div style="text-align: center">
+                <h1>Thank You!</h1>
+                <p>You have sucsessfully registerd with us. You can <a href="javascript:void(0);"
+                        onclick="showHide('logIn', 'thankYou')">Log in now</a></p>
+            </div>
+        </form>
+        <form name="login" id="logIn" method="POST" onsubmit="return loginUser()" style="display: none;">
+            <h1>CONNECT</h1>
+            <div class="form-group">
+                <label for="name">E-mail</label>
+                <input type="email" autocomplete="off" name="lemail" id="lemail" class="form-control"
+                    placeholder="Enter your E-mail" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" autocomplete="new-password" name="lpassword" id="lpassword" class="form-control"
+                    placeholder="Enter your password" />
+            </div>
+
+            <button type="submit" id="lsubmit">Connect</button>
+            <span>
+                New around here?
+                <a href="javascript:void(0);" onclick="showHide('registerForm','logIn')">
+                    Register now
+                </a>
+            </span>
+
+        </form>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
